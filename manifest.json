@@ -3,7 +3,11 @@
   "name": "YouTube Layout Fixer",
   "version": "1.1",
   "description": "Resize YouTube thumbnails with a slider",
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube UI Tweaks"
+  },
   "content_scripts": [
     {
       "matches": ["*://www.youtube.com/*"],

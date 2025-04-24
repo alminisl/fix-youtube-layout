@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube UI Tweaks</title>
+    <style>
+      body {
+        background-color: #1e1e1e;
+        color: white;
+        font-family: sans-serif;
+        padding: 16px;
+        width: 250px;
+        margin: 0;
+      }
+      h2 {
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 18px;
+        border-bottom: 1px solid #444;
+        padding-bottom: 8px;
+      }
+      label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      input[type="checkbox"] {
+        transform: scale(1.2);
+      }
+      .slider-container {
+        margin-top: 16px;
+        margin-bottom: 10px;
+      }
+      .slider-label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+      input[type="range"] {
+        width: 100%;
+        height: 8px;
+        -webkit-appearance: none;
+        background: #444;
+        border-radius: 5px;
+        outline: none;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        background: #ff0000;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .option {
+        margin-bottom: 16px;
+      }
+      .footer {
+        font-size: 11px;
+        margin-top: 16px;
+        text-align: center;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>YouTube Layout Fixer</h2>
+
+    <div class="option">
+      <label>
+        Hide Shorts:
+        <input type="checkbox" id="toggleShorts" />
+      </label>
+    </div>
+
+    <div class="slider-container">
+      <div class="slider-label">
+        <span>Thumbnail Size:</span>
+        <span id="thumbnail-size-value">220px</span>
+      </div>
+      <input
+        type="range"
+        min="160"
+        max="340"
+        value="220"
+        step="10"
+        id="thumbnail-slider"
+      />
+    </div>
+
+    <div class="option">
+      <label>
+        Use In-page Slider:
+        <input type="checkbox" id="toggleInPageSlider" />
+      </label>
+    </div>
+
+    <div class="footer">✨ YouTube Layout Fixer v1.1 ✨</div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
