@@ -20,7 +20,7 @@
 
 ## Screenshots
 
-_[Consider adding screenshots of your extension in action]_
+_Will be added soon_
 
 ## Installation
 
