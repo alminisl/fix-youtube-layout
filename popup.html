@@ -29,6 +29,13 @@
       input[type="checkbox"] {
         transform: scale(1.2);
       }
+      select {
+        background-color: #333;
+        color: white;
+        border: 1px solid #555;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
       .slider-container {
         margin-top: 16px;
         margin-bottom: 10px;
@@ -63,17 +70,19 @@
         text-align: center;
         color: #888;
       }
+      .section-header {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        color: #aaa;
+      }
     </style>
   </head>
   <body>
     <h2>YouTube Layout Fixer</h2>
 
-    <div class="option">
-      <label>
-        Hide Shorts:
-        <input type="checkbox" id="toggleShorts" />
-      </label>
-    </div>
+    <div class="section-header">Video & Shorts Layout</div>
 
     <div class="slider-container">
       <div class="slider-label">
@@ -89,6 +98,19 @@
         id="thumbnail-slider"
       />
     </div>
+
+    <div class="option">
+      <label>
+        Shorts Display:
+        <select id="shortsDisplayMode">
+          <option value="hide">Hide Shorts</option>
+          <option value="enhance">Grid Layout</option>
+          <option value="default">Default</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="section-header">Settings</div>
 
     <div class="option">
       <label>

@@ -1,31 +1,38 @@
 // popup.js
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("toggleShorts");
   const thumbnailSlider = document.getElementById("thumbnail-slider");
   const thumbnailSizeValue = document.getElementById("thumbnail-size-value");
   const inPageSliderToggle = document.getElementById("toggleInPageSlider");
+  const shortsDisplayMode = document.getElementById("shortsDisplayMode");
 
   // Load the current state
   chrome.storage.sync.get(
-    { hideShorts: true, thumbnailWidth: 220, useInPageSlider: false },
-    ({ hideShorts, thumbnailWidth, useInPageSlider }) => {
-      toggle.checked = hideShorts;
+    {
+      shortsMode: "hide",
+      thumbnailWidth: 220,
+      useInPageSlider: false,
+    },
+    ({ shortsMode, thumbnailWidth, useInPageSlider }) => {
+      shortsDisplayMode.value = shortsMode || "hide";
       thumbnailSlider.value = thumbnailWidth;
       thumbnailSizeValue.textContent = `${thumbnailWidth}px`;
       inPageSliderToggle.checked = useInPageSlider;
     }
   );
 
-  // Listen for shorts toggle changes
-  toggle.addEventListener("change", () => {
-    const hide = toggle.checked;
-    chrome.storage.sync.set({ hideShorts: hide });
+  // Listen for shorts display mode changes
+  shortsDisplayMode.addEventListener("change", () => {
+    const mode = shortsDisplayMode.value;
+    chrome.storage.sync.set({ shortsMode: mode });
 
     // Send message to active tab only if we're on YouTube
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (tabs[0] && tabs[0].url && tabs[0].url.includes("youtube.com")) {
         chrome.tabs
-          .sendMessage(tabs[0].id, { type: "TOGGLE_SHORTS", hide })
+          .sendMessage(tabs[0].id, {
+            type: "UPDATE_SHORTS_MODE",
+            mode: mode,
+          })
           .catch((err) => console.log("Tab might not be ready yet:", err));
       }
     });
