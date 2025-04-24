@@ -6,4 +6,4 @@ All settings and preferences (such as hiding Shorts or adjusting thumbnail sizes
 
 This extension does not use any analytics, tracking, or connect to external servers.
 
-If you have any questions, you may contact the developer at: [almin.islamovic@gmail.com]
+If you have any questions, you may contact the developer at: almin.islamovic@gmail.com
