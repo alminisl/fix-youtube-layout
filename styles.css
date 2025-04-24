@@ -1,0 +1,9 @@
+#contents.style-scope.ytd-rich-grid-renderer {
+  grid-template-columns: repeat(6, 1fr) !important;
+}
+
+ytd-rich-grid-renderer {
+  --ytd-rich-item-margin: 12px !important;
+  --ytd-rich-grid-items-per-row: auto !important;
+  max-width: 100% !important;
+}
