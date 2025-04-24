@@ -41,6 +41,59 @@ function applyLayout(thumbnailWidth) {
       display: flex;
       align-items: center;
     }
+
+    
+
+  div#thumbnail.style-scope.ytd-rich-grid-media {
+    position: relative !important;
+  }
+
+
+.badge-style-type-live-now-alternate {
+    position: absolute !important;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+    background-color: red !important;
+    color: white !important;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex !important;
+    align-items: center;
+    gap: 4px;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+  .badge-style-type-live-now-alternate yt-icon {
+    width: 16px;
+    height: 16px;
+    color: white !important;
+  }
+
+  .badge-style-type-live-now-alternate p {
+    margin: 0 !important;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+    ytd-rich-item-renderer {
+    max-width: ${thumbnailWidth}px !important;
+    background: #1f1f1f;
+    border-radius: 0px !important;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transform-origin: center center;
+  }
+
+  ytd-rich-item-renderer:hover {
+    transform: scale(1.035); /* 👈 pop-out scale */
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15); /* subtle glow */
+    z-index: 10;
+  }
   `;
   document.head.appendChild(style);
 }
